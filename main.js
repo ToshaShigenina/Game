@@ -22,6 +22,15 @@ car.classList.add('car');
 
 const startGame = () => {
   start.classList.add('hidden');
+
+  for (let i = 0; i < 20; i++) {
+    const line = document.createElement('div');
+    line.classList.add('line');
+    line.style.top = (i * 70) + 'px';
+    line.y = i * 70;
+    gameArea.append(line);
+  }
+
   setting.start = true;
   gameArea.append(car);
   setting.x = car.offsetLeft;
@@ -29,8 +38,21 @@ const startGame = () => {
   requestAnimationFrame(playGame);
 };
 
+const moveRoad = () => {
+  let lines = document.querySelectorAll('.line');
+  lines.forEach(line => {
+    line.y += setting.speed;
+    line.style.top = line.y + 'px';
+    if (line.y > document.documentElement.clientHeight) {
+      line.y = -70;
+    }
+  });
+};
+
 const playGame = () => {
   if (setting.start) {
+    moveRoad();
+
     if (keys.ArrowLeft && setting.x > 0) {
       setting.x -= setting.speed;
     }
