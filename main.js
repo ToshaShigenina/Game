@@ -15,15 +15,20 @@ const keys = {
 const setting = {
   start: false,
   score: 0,
-  speed: 3
+  speed: 3,
+  traffic: 3
 };
 
 car.classList.add('car');
 
+const getQuantityElements = (heightElement) => {
+  return Math.floor(document.documentElement.clientHeight / heightElement + 1);
+};
+
 const startGame = () => {
   start.classList.add('hidden');
 
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < getQuantityElements(30); i++) {
     const line = document.createElement('div');
     line.classList.add('line');
     line.style.top = (i * 70) + 'px';
