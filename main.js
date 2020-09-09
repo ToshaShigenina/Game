@@ -24,11 +24,29 @@ const startGame = () => {
   start.classList.add('hidden');
   setting.start = true;
   gameArea.append(car);
+  setting.x = car.offsetLeft;
+  setting.y = car.offsetTop;
   requestAnimationFrame(playGame);
 };
 
 const playGame = () => {
   if (setting.start) {
+    if (keys.ArrowLeft && setting.x > 0) {
+      setting.x -= setting.speed;
+    }
+    if (keys.ArrowRight && setting.x < gameArea.offsetWidth - car.offsetWidth) {
+      setting.x += setting.speed;
+    }
+    if (keys.ArrowUp && setting.y > 0) {
+      setting.y -= setting.speed;
+    }
+    if (keys.ArrowDown && setting.y < gameArea.offsetHeight - car.offsetHeight) {
+      setting.y += setting.speed;
+    }
+
+    car.style.left = setting.x + 'px';
+    car.style.top = setting.y + 'px';
+
     requestAnimationFrame(playGame);
   }
 };
