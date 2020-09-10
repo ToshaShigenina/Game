@@ -28,6 +28,10 @@ const getQuantityElements = (heightElement) => {
 
 const startGame = () => {
   start.classList.add('hidden');
+
+  gameArea.innerHTML = '';
+  car.style.left = '125px';
+  car.style.top = 'calc(100% - 110px)';
   for (let i = 0; i < getQuantityElements(60); i++) {
     const line = document.createElement('div');
     line.classList.add('line');
