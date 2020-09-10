@@ -19,6 +19,7 @@ const setting = {
   traffic: 3
 };
 
+start.textContent = 'Чтобы начать игру кликни сюда';
 car.classList.add('car');
 
 const getQuantityElements = (heightElement) => {
@@ -44,6 +45,7 @@ const startGame = () => {
     gameArea.append(enemy);
   }
 
+  setting.score = 0;
   setting.start = true;
   gameArea.append(car);
   setting.x = car.offsetLeft;
@@ -73,6 +75,9 @@ const moveEnemy = () => {
       carRect.left <= enemyRect.right &&
       carRect.bottom >= enemyRect.top) {
       setting.start = false;
+      start.classList.remove('hidden');
+      start.innerHTML = `Чтобы перезапустить игру кликни сюда<br>
+                          Счет игры: ${setting.score}`;
     }
 
     enemy.y += setting.speed / 2;
@@ -87,6 +92,8 @@ const moveEnemy = () => {
 
 const playGame = () => {
   if (setting.start) {
+    setting.score += setting.speed;
+    score.textContent = 'Очки: ' + setting.score;
     moveRoad();
     moveEnemy();
 
