@@ -22,17 +22,16 @@ const setting = {
 car.classList.add('car');
 
 const getQuantityElements = (heightElement) => {
-  return Math.floor(document.documentElement.clientHeight / heightElement + 1);
+  return Math.floor(document.documentElement.clientHeight / heightElement);
 };
 
 const startGame = () => {
   start.classList.add('hidden');
-
   for (let i = 0; i < getQuantityElements(30); i++) {
     const line = document.createElement('div');
     line.classList.add('line');
-    line.style.top = (i * 70) + 'px';
-    line.y = i * 70;
+    line.style.top = (i * 60) + 'px';
+    line.y = i * 60;
     gameArea.append(line);
   }
 
@@ -49,7 +48,7 @@ const moveRoad = () => {
     line.y += setting.speed;
     line.style.top = line.y + 'px';
     if (line.y > document.documentElement.clientHeight) {
-      line.y = -70;
+      line.y = -60;
     }
   });
 };
