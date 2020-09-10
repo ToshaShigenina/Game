@@ -172,6 +172,7 @@ body {
   font-size: 120%;
   font-weight: 700;
   background-color: #fff;
+  text-align: center;
 }
 
 .hidden {
@@ -219,6 +220,7 @@ body {
   left: 50%;
   width: 100px;
   margin-left: -250px;
-  padding: 2rem;
-  font-size: 120%;
+  padding: 1rem;
+  font-size: 110%;
+  text-align: right;
 }
