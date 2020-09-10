@@ -65,6 +65,16 @@ const moveRoad = () => {
 const moveEnemy = () => {
   let enemys = document.querySelectorAll('.enemy');
   enemys.forEach((enemy) => {
+    let carRect = car.getBoundingClientRect();
+    let enemyRect = enemy.getBoundingClientRect();
+
+    if (carRect.top <= enemyRect.bottom &&
+      carRect.right >= enemyRect.left &&
+      carRect.left <= enemyRect.right &&
+      carRect.bottom >= enemyRect.top) {
+      setting.start = false;
+    }
+
     enemy.y += setting.speed / 2;
     enemy.style.top = enemy.y + 'px';
 
