@@ -212,3 +212,13 @@ body {
   background-color: #fff;
   left: 146px;
 }
+
+.score {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100px;
+  margin-left: -250px;
+  padding: 2rem;
+  font-size: 120%;
+}
